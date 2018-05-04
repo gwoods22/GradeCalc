@@ -1,0 +1,25 @@
+{
+
+  "name": "NZ width app NZ",
+  "version": "0",
+  "description": "Show browser width",
+  "background": {
+                 "persistent": false,
+                 "scripts": ["background.js"]
+                 },
+  "permissions": [
+  "activeTab",
+  "clipboardWrite"
+  ],
+  "manifest_version": 2,
+  "browser_action": {
+    "name": "Manipulate DOM",
+    "icons": ["icon.png"],
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [ {
+    "js": [ "jquery.min.js", "background.js" ],
+    "css": ["customStyles.css"],
+    "matches": [ "http://*/*", "https://*/*"]
+  }]
+}
