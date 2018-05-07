@@ -1,17 +1,16 @@
 {
 
-  "name": "NZ width app NZ",
-  "version": "0",
-  "description": "Show browser width",
+  "name": "McMaster Grade Calculator",
+  "version": "1.0",
+  "description": "calculates GPA for McMaster University students",
   "background": {
                  "persistent": false,
                  "scripts": ["background.js"]
                  },
   "permissions": [
-  "activeTab",
-  "clipboardWrite"
+  "activeTab"
   ],
-  "manifest_version": 2,
+  "manifest_version": 1,
   "browser_action": {
     "name": "Manipulate DOM",
     "icons": ["icon.png"],
