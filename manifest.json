@@ -17,8 +17,7 @@
     "default_icon": "icon.png"
   },
   "content_scripts": [ {
-    "js": [ "jquery.min.js", "background.js" ],
-    "css": ["customStyles.css"],
+    "js": [ "background.js" ],
     "matches": [ "http://*/*", "https://*/*"]
   }]
 }

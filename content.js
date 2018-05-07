@@ -1,18 +1,25 @@
-//Activate jQuery
-var script = document.createElement('script');
-script.type = 'text/javascript';
-script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js';
-document.getElementsByTagName('head')[0].appendChild(script);
+//jQuery CDN
+var jQueryScript = document.createElement('script');
+jQueryScript.type = 'text/javascript';
+jQueryScript.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js';
+document.head.appendChild(jQueryScript);
+
+//Alertify CDN
+var AlertifyScript = document.createElement('script');
+AlertifyScript.type = 'text/javascript';
+AlertifyScript.src = 'https://cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/alertify.min.js';
+document.head.appendChild(AlertifyScript);
 
 
+//Iterative variables
 var i=2;
 var index=0;
 
 //Reference arrays
 var letter = ['A+','A','A-','B+','B','B-','C+','C','C-','D+','D','D-'];
 var number = [12,11,10,9,8,7,6,5,4,3,2,1];
-var gpa = [4,3.9,3.7,3.3,3,2.7,2.3,2,1.7,1.3,1,0.7];
-var basePercent = []
+var percent = [90,85,80,77,73,70,67,63,60,57,53,50];
+var percentRange = [9.99,4.99,4.99,2.99,3.99,2.99,2.99,3.99,2.99,2.99,3.99,2.99];
 
 //Grade Object
 function Grade (g,u,t) {
@@ -21,7 +28,17 @@ function Grade (g,u,t) {
     this. unit = u;
 }
 
+//Result String
+var result = ''
 
+//Percent Converter
+function convP (grade) {
+  let base = percent[number.indexOf(Math.floor(grade))]
+  let mult = grade - Math.floor(grade);
+  let range = percentRange[number.indexOf(Math.floor(grade))];
+  return base + mult * range;
+
+}
 
 //Data Arrays
 var grades = [];
@@ -58,7 +75,8 @@ for (t in terms) {
       unitTotal += grades[i].unit;
     }
   }
-  console.log(terms[t] + ' GPA = ' + (total/unitTotal).toFixed(2));
+  console.log(terms[t] + ' Mac GPA = ' + (total/unitTotal).toFixed(2) + '  Percent = ' + convP(total/unitTotal).toFixed(1) );
+  result = result.concat(terms[t] + ' Mac GPA = ' + (total/unitTotal).toFixed(2) + '  Percent = ' + convP(total/unitTotal).toFixed(1) );
 }
 
 //Calculate Overall Averages
@@ -68,13 +86,19 @@ for (i=0; i < grades.length; i++) {
   total += grades[i].grade * grades[i].unit;
   unitTotal += grades[i].unit;
 }
-console.log('Overall GPA = ' + (total/unitTotal).toFixed(2));
+console.log('Overall GPA = ' + (total/unitTotal).toFixed(2) + ', Percent = ' + convP(total/unitTotal).toFixed(1) + '%');
+result = result.concat('Overall GPA = ' + (total/unitTotal).toFixed(2) + ', Percent = ' + convP(total/unitTotal).toFixed(1) + '%');
 
 
 // URL:
 // https://csprd.mcmaster.ca/psc/prcsprd/EMPLOYEE/HRMS_LS/c/SA_LEARNER_SERVICES.SSS_MY_CRSEHIST.GBL
-//
+
+//Percentages URL:
+// https://registrar.mcmaster.ca/exams/grades/
+
 // NOTIFICATION:
-// $("body").append("<div class = 'chrome-notification'><img src = 'https://www.sololearn.com/Icons/Courses/1082.png'><h2>jQuery Added! boi kid</h2></div>");
+alertify.alert('GPA Result', result);
+
+// $("body").append("<div class = 'chrome-notification'><img src = 'https://www.sololearn.com/Icons/Courses/1082.png'><h1>Results:</h1><h2>{{result}}</h2></div>");
 // $(".chrome-notification h2").css({"height":$(".chrome-notification").height()});
-// $(".chrome-notification").fadeOut(2500);
+// $(".chrome-notification").fadeOut(10000);
