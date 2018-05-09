@@ -1,9 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Gothic+A1:200');
 
+@media (max-width: 950px) {
+  body {
+    width: 450px !important;
+  }
+
+}
+
 body {
   font-family: 'Gothic A1', sans-serif;
   color: #3884c9;
-  width: 400px;
+  width: 900px;
   margin: 0 auto;
   background-color: #dddddd;
 }
@@ -13,14 +20,18 @@ h1 {
   padding-left: 0;
 }
 
+h2 {
+  padding-left: 10px;
+}
+
+h3 {
+  margin-top: 70px;
+}
+
 h4 {
   margin-top: -20px;
   font-style: italic;
   text-align: center;
-}
-
-h2 {
-  padding-left: 10px;
 }
 
 p {
@@ -32,8 +43,23 @@ a {
   font-weight: 900;
 }
 
-span {
+.cross {
   text-decoration: line-through;
+}
+
+.big {
+  font-size: 20px;
+  font-weight:800;
+}
+
+.bigger {
+  font-size: 22px;
+  display: block;
+  padding-bottom: 10px
+}
+
+.biggest {
+  font-size: 30px;
 }
 
 code {
@@ -47,5 +73,6 @@ code {
 .footer {
   position:absolute;
   bottom:0;
-  height:40px;   /* Height of the footer */
+  height:40px;
+
 }
