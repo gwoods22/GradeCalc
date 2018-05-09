@@ -5,6 +5,10 @@
     width: 450px !important;
   }
 
+  .author {
+    width: 400px !important;
+  }
+
 }
 
 body {
@@ -25,7 +29,7 @@ h2 {
 }
 
 h3 {
-  margin-top: 70px;
+  margin-top: 50px;
 }
 
 h4 {
@@ -52,14 +56,12 @@ a {
   font-weight:800;
 }
 
-.bigger {
-  font-size: 22px;
-  display: block;
-  padding-bottom: 10px
-}
-
 .biggest {
   font-size: 30px;
+}
+
+.bug {
+  padding-bottom: 25px;
 }
 
 code {
@@ -70,9 +72,8 @@ code {
   padding: 10px;
 }
 
-.footer {
-  position:absolute;
-  bottom:0;
-  height:40px;
-
+.author {
+  text-align: center;
+  width: 600px;
+  margin: 0 auto;
 }
