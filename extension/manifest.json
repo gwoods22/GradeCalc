@@ -1,23 +1,16 @@
 {
-
+  "manifest_version": 2,
   "name": "McMaster Grade Calculator",
   "version": "1.0",
   "description": "calculates GPA for McMaster University students",
-  "background": {
-                 "persistent": false,
-                 "scripts": ["background.js"]
-                 },
-  "permissions": [
-  "activeTab"
-  ],
-  "manifest_version": 2,
+  "content_scripts": [{
+    "matches": ["https://csprd.mcmaster.ca/psc/prcsprd/EMPLOYEE/HRMS_LS/c/SA_LEARNER_SERVICES.SSS_MY_CRSEHIST.GBL"],
+    "js": ["grades.js"]
+  }],
   "browser_action": {
-    "name": "Manipulate DOM",
-    "icons": ["icon.png"],
     "default_icon": "icon.png"
   },
-  "content_scripts": [ {
-    "js": [ "background.js" ],
-    "matches": [ "http://*/*", "https://*/*"]
-  }]
+  "background": {
+    "scripts": ["background.js"]
+  }
 }
